@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#17152e">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d20">
+  <title>Habit Kingdom | Small Habits, Big Dreams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+</div>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="#home">
+      <span class="crown">♛</span>
+      <span><b>HABIT KINGDOM</b><small>Small Habits. Big Dreams.</small></span>
+    </a>
+    <p class="side-title">YOUR KINGDOM</p>
+    <nav>
+      <a class="nav active" href="#home">⌂ <span>Dashboard</span></a>
+      <a class="nav" href="#habits">✓ <span>My Habits</span></a>
+      <a class="nav" href="#kingdom">♜ <span>My Kingdom</span></a>
+      <a class="nav" href="#insights">▥ <span>Statistics</span></a>
+      <a class="nav" href="#challenges">⚡ <span>Challenges</span></a>
+      <a class="nav" href="#rewards">✧ <span>Achievements</span></a>
+    </nav>
+    <div class="side-quote">
+      <span>✦ YOUR REMINDER</span>
+      <p>You are not building habits. You are building the life you love.</p>
+      <span class="little-crown">♛</span>
+    </div>
+    <div class="profile">
+      <div class="avatar">M</div>
+      <div><b>Kingdom Keeper</b><small id="sideLevel">Level 1 · Beginner</small></div>
+      <button id="resetData" title="Reset demo progress" aria-label="Reset progress">↻</button>
+    </div>
+  </aside>
+
+  <main class="main" id="home">
+    <header class="topbar">
+      <div><span class="eyebrow">YOUR PERSONAL GROWTH SPACE</span><h1>Dashboard <span class="wave">✦</span></h1></div>
+      <div class="top-actions">
+        <span class="date" id="todayDate"></span>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+        <button class="primary-btn" id="addTop">＋ New Habit</button>
+      </div>
+    </header>
+
+    <section class="hero" id="kingdom">
+      <div class="hero-copy">
+        <span class="eyebrow">✦ A NEW DAY, A NEW QUEST</span>
+        <h2>Good things grow<br>from <span>small beginnings.</span></h2>
+        <p>Every little promise you keep makes your kingdom stronger.</p>
+        <button class="hero-btn" id="startQuest">Explore your progress ↗</button>
+      </div>
+      <div class="castle-art" aria-label="Fantasy pixel kingdom illustration">
+        <div class="moon"></div><div class="star s1">✦</div><div class="star s2">✧</div>
+        <div class="mountain m1"></div><div class="mountain m2"></div>
+        <div class="island"></div>
+        <div class="tree t1">♣</div><div class="tree t2">♣</div><div class="tree t3">♣</div>
+        <div class="castle">
+          <div class="flag">⚑</div><div class="tower tl"><i></i></div><div class="tower tr"><i></i></div>
+          <div class="roof"></div><div class="castle-body"><i></i><b></b></div>
+        </div>
+        <div class="house">⌂</div>
+        <div class="art-caption"><span>♜</span><div><b id="artLevel">Level 1 Kingdom</b><small id="artName">Kingdom of Possibility</small></div></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat"><div class="stat-icon purple">✧</div><p>TOTAL EXPERIENCE</p><strong id="xp">0 <small>XP</small></strong><span>Every small win counts</span></article>
+      <article class="stat"><div class="stat-icon orange">♨</div><p>CURRENT STREAK</p><strong id="streak">0 <small>days</small></strong><span>Consistency over perfection</span></article>
+      <article class="stat"><div class="stat-icon green">✓</div><p>TODAY'S PROGRESS</p><strong id="progressCount">0 / 3</strong><span id="progressText">Your journey starts here</span></article>
+      <article class="stat"><div class="stat-icon blue">◈</div><p>KINGDOM COINS</p><strong id="coins">0 <small>coins</small></strong><span>Collect coins as you grow</span></article>
+    </section>
+
+    <section class="columns">
+      <div class="left-column">
+        <article class="panel" id="habits">
+          <div class="panel-head"><div><span class="eyebrow">YOUR DAILY WINS</span><h2>Today's Habits <span class="count" id="habitCount">3</span></h2></div><button class="text-btn" id="addInline">＋ Add habit</button></div>
+          <div class="filters">
+            <button class="filter active" data-filter="all">All habits</button>
+            <button class="filter" data-filter="pending">To do</button>
+            <button class="filter" data-filter="done">Completed</button>
+          </div>
+          <div id="habitList"></div>
+          <div class="empty hidden" id="empty"><div>🌱</div><b>Every great kingdom starts with one seed.</b><p>Add a small habit to begin.</p><button class="primary-btn" id="emptyAdd">＋ Create a habit</button></div>
+        </article>
+
+        <article class="panel" id="insights">
+          <div class="panel-head"><div><span class="eyebrow">LITTLE STEPS ADD UP</span><h2>Your Weekly Journey</h2></div><span class="percentage" id="weekPct">0%</span></div>
+          <p class="muted">Your habit completions over the last seven days.</p>
+          <div class="chart" id="chart"></div>
+          <div class="chart-foot"><span><i></i> Completed habits</span><b id="weekTotal">0 completions</b></div>
+        </article>
+      </div>
+
+      <div class="right-column">
+        <article class="panel motivation">
+          <div class="panel-head"><div><span class="eyebrow">A LITTLE LIGHT FOR TODAY</span><h2>Daily Motivation ✨</h2></div><button class="icon-btn" id="nextQuote" title="New quote">↻</button></div>
+          <div class="quote-mark">“</div>
+          <blockquote id="quote">Great things are done by a series of small things brought together.</blockquote>
+          <p class="author" id="author">— Vincent van Gogh</p>
+          <div class="quote-bottom"><span>Believe in your next step.</span><button class="text-btn" id="saveQuote">♡ Save quote</button></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head"><div><span class="eyebrow">YOUR NEXT ADVENTURE</span><h2>Daily Challenges</h2></div><span class="challenge-icon">⚡</span></div>
+          <div class="challenge"><div class="challenge-emoji">📚</div><div class="challenge-info"><b>Mindful Learner</b><small>Complete 2 habits today</small><div class="mini-track"><i id="challengeBar"></i></div></div><span class="reward">+30 XP</span></div>
+          <div class="challenge"><div class="challenge-emoji">🌱</div><div class="challenge-info"><b>Keep Growing</b><small>Build your daily streak</small><div class="mini-track"><i id="streakBar"></i></div></div><span class="reward">+10 🪙</span></div>
+          <p class="challenge-note">Little quests. Meaningful progress. Your pace. 💜</p>
+        </article>
+
+        <article class="panel focus">
+          <div class="panel-head"><div><span class="eyebrow">FOCUS SANCTUARY</span><h2>One thing at a time.</h2></div><span class="focus-icon">◷</span></div>
+          <p class="muted">Give your attention a little room to breathe.</p>
+          <div class="timer" id="timer">25:00</div>
+          <div class="timer-modes"><button class="mode active" data-min="25">Focus 25m</button><button class="mode" data-min="5">Break 5m</button><button class="mode" data-min="15">Reset 15m</button></div>
+          <div class="timer-actions"><button class="primary-btn" id="timerStart">▶ Start focus</button><button class="icon-btn" id="timerReset" aria-label="Reset timer">↻</button></div>
+        </article>
+
+        <article class="panel reward-panel" id="rewards">
+          <div class="panel-head"><div><span class="eyebrow">CELEBRATE YOUR PROGRESS</span><h2>Achievements</h2></div><span class="medal">🏆</span></div>
+          <div class="achievement"><span>🌱</span><div><b id="achievementName">First Steps</b><small id="achievementText">Complete your first habit.</small></div><span class="lock" id="achievementLock">🔒</span></div>
+          <div class="achievement"><span>🔥</span><div><b>Consistency Champion</b><small>Reach a 7-day streak.</small></div><span class="lock" id="streakLock">🔒</span></div>
+          <div class="level-line"><span>Level progress</span><b id="levelText">0 / 100 XP</b></div><div class="level-track"><i id="levelBar"></i></div>
+          <button class="text-btn" id="renameBtn">✎ Rename your kingdom</button>
+        </article>
+      </div>
+    </section>
+    <footer>✦ Your kingdom, your pace. Progress over perfection. <span>HABIT KINGDOM © <span id="year"></span></span></footer>
+  </main>
+</div>
+
+<dialog id="habitDialog">
+  <form id="habitForm">
+    <div class="modal-head"><div><span class="eyebrow">PLANT A NEW SEED</span><h2>Create a habit</h2></div><button type="button" class="close" data-close="habitDialog">×</button></div>
+    <label for="habitName">Habit name</label><input id="habitName" maxlength="55" placeholder="e.g. Read 10 pages" required>
+    <label for="category">Category</label><select id="category"><option>Mind</option><option>Body</option><option>Focus</option><option>Life</option></select>
+    <label for="frequency">Daily target</label><select id="frequency"><option>Once a day</option><option>Twice a day</option><option>Three times a day</option></select>
+    <p class="modal-tip">✦ Start small. Make it repeatable. Celebrate every win.</p>
+    <button class="primary-btn submit" type="submit">Create habit ↗</button>
+  </form>
+</dialog>
+
+<dialog id="nameDialog">
+  <form id="nameForm"><div class="modal-head"><div><span class="eyebrow">MAKE THIS WORLD YOURS</span><h2>Name your kingdom</h2></div><button type="button" class="close" data-close="nameDialog">×</button></div>
+  <label for="kingdomName">Kingdom name</label><input id="kingdomName" maxlength="28" placeholder="Possibility" required><button class="primary-btn submit" type="submit">Save kingdom ↗</button></form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+<dialog id="welcomeDialog" class="welcome-dialog">
+  <div class="welcome-art">👑</div>
+  <span class="eyebrow">WELCOME TO YOUR NEW WORLD</span>
+  <h2>Your kingdom begins with you.</h2>
+  <p>Build better routines, earn XP, unlock magical buildings, and celebrate every little win.</p>
+
+  <label for="welcomeName">What shall we call your kingdom?</label>
+  <input id="welcomeName" maxlength="28" placeholder="e.g. Dreamland">
+
+  <div class="welcome-perks">
+    <span>✨ Earn XP</span>
+    <span>🏰 Build your world</span>
+    <span>🏆 Collect badges</span>
+  </div>
+
+  <button id="beginJourney" class="primary-btn submit">Begin my adventure ↗</button>
+  <button id="skipWelcome" class="text-btn welcome-skip">I'll explore first</button>
+</dialog>
+
+<div id="achievementPopup" class="achievement-popup" role="status" aria-live="polite">
+  <div class="popup-medal" id="popupMedal">🏆</div>
+  <div>
+    <span class="eyebrow">ACHIEVEMENT UNLOCKED</span>
+    <h3 id="popupTitle">First Steps</h3>
+    <p id="popupDescription">Your adventure has begun!</p>
+  </div>
+</div>
+<div id="confettiLayer" aria-hidden="true"></div>
+
+
+
+
+
+
+
