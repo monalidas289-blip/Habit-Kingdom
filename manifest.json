@@ -1,0 +1,22 @@
+{
+  "name": "Habit Kingdom",
+  "short_name": "Habit Kingdom",
+  "description": "Build better habits and grow your kingdom.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#11152f",
+  "theme_color": "#17152e",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
